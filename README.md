@@ -12,7 +12,7 @@
 
 > minikube service nodejs-app --url
 
->kubectl delete -k ./
+> kubectl delete -k ./
 ```
 
 
