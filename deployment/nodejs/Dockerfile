@@ -6,7 +6,7 @@ RUN mkdir /usr/share/website
 WORKDIR /usr/share/website
 RUN git clone https://github.com/juliuscanute/node-mysql-crud-app.git
 RUN npm install node-mysql-crud-app
-RUN rm -r node-mysql-crud-app/.git
+RUN rm -rf node-mysql-crud-app/.git
 RUN apk --purge -v del build-deps
 RUN rm /var/cache/apk/*
-RUN rm -r node-mysql-crud-app/deployment/*
+RUN rm -rf node-mysql-crud-app/deployment/*
