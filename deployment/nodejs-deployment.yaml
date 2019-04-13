@@ -32,7 +32,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: nodejs-app
+      - image: juliuscanute/node-mysql-crud-app:latest
         name: crud-app
         env:
         - name: MYSQL_DB_HOST
