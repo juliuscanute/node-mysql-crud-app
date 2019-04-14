@@ -15,6 +15,10 @@
 > minikube service nodejs-app --url
 
 > kubectl delete -k ./
+
+> kubectl get secret <secret> -o yaml
+
+> echo <BASE64DATA>| base64 --decode
 ```
 
 
