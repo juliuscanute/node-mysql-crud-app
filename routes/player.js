@@ -40,7 +40,7 @@ module.exports = {
                 if (uploadedFile.mimetype === 'image/png' || uploadedFile.mimetype === 'image/jpeg' || uploadedFile.mimetype === 'image/gif') {
                     // upload the file to the /public/assets/img directory
                     if (!fs.existsSync('public/assets/img/')){
-                        fs.mkdirSync('public/assets/img/');
+                        fs.mkdirSync('public/assets/img/',{ recursive: true });
                     }
                     uploadedFile.mv(`public/assets/img/${image_name}`, (err ) => {
                         if (err) {
