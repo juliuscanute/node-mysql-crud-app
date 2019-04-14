@@ -33,12 +33,16 @@ metadata:
   labels:
     app: crud-app
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: crud-app
       tier: frontend
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:
