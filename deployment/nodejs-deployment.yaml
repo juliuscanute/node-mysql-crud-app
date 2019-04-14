@@ -6,7 +6,7 @@ metadata:
     app: crud-app
 spec:
   ports:
-    - port: 80
+    - port: 2000
   selector:
     app: crud-app
     tier: frontend
@@ -35,6 +35,8 @@ spec:
       - image: juliuscanute/node-mysql-crud-app:latest
         name: crud-app
         env:
+        - name: APP_PORT
+          value: 2000
         - name: MYSQL_DB_HOST
           value: nodejs-mysql
         - name: MYSQL_DB_PASSWORD
@@ -43,5 +45,5 @@ spec:
               name: mysql-pass
               key: password
         ports:
-        - containerPort: 80
+        - containerPort: 2000
           name: crud-app
