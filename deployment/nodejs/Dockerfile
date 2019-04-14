@@ -1,16 +1,9 @@
 FROM node:alpine
 MAINTAINER juliuscanute@touchcapture.net
-RUN apk update
-RUN apk add --virtual build-deps npm git openssh
-RUN mkdir /usr/share/website
+RUN apk update && apk add --virtual build-deps npm git openssh && mkdir /usr/share/website
 WORKDIR /usr/share/website
-RUN git clone https://github.com/juliuscanute/node-mysql-crud-app.git
-RUN npm install node-mysql-crud-app
-RUN rm -rf node-mysql-crud-app/.git
-RUN apk --purge -v del build-deps
-RUN rm /var/cache/apk/*
-RUN rm -rf node-mysql-crud-app/deployment/*
-RUN mv node-mysql-crud-app/* .
-RUN mkdir -p public/assets/img/
+RUN git clone https://github.com/juliuscanute/node-mysql-crud-app.git && npm install node-mysql-crud-app \
+    && rm -rf node-mysql-crud-app/.git && apk --purge -v del build-deps && rm /var/cache/apk/* \
+    && rm -rf node-mysql-crud-app/deployment/* && mv node-mysql-crud-app/* . && mkdir -p public/assets/img/
 EXPOSE 2000/tcp
 ENTRYPOINT ["node","app.js"]
