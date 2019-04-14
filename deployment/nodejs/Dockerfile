@@ -10,3 +10,4 @@ RUN rm -rf node-mysql-crud-app/.git
 RUN apk --purge -v del build-deps
 RUN rm /var/cache/apk/*
 RUN rm -rf node-mysql-crud-app/deployment/*
+ENTRYPOINT ["node","node-mysql-crud-app/app.js"]
