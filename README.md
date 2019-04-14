@@ -1,5 +1,7 @@
 
 ```bash
+> minikube mount <host-path>/deployment/sql:/sqldump
+
 > kubectl apply -k .
 
 > kubectl get secrets

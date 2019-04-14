@@ -12,6 +12,20 @@ spec:
     tier: frontend
   type: LoadBalancer
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nodejs-app-pv-claim
+  labels:
+    app: crud-app
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -45,3 +59,10 @@ spec:
         ports:
         - containerPort: 2000
           name: crud-app
+        volumeMounts:
+          - name: nodejs-app-storage
+            mountPath: /usr/share/website/public/
+      volumes:
+        - name: nodejs-app-storage
+          persistentVolumeClaim:
+            claimName: nodejs-app-pv-claim
