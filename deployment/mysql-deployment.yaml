@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-mysql
+  name: nodejs-mysql-service
   labels:
     app: crud-app
 spec:
@@ -28,7 +28,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-mysql
+  name: nodejs-mysql-deployment
   labels:
     app: crud-app
 spec:

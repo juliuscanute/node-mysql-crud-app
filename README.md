@@ -1,3 +1,7 @@
+HLD
+===
+
+![High Level Design](doc/kubernetes_deployment.png)
 
 ```bash
 > minikube mount <host-path>/deployment/sql:/sqldump

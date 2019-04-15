@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-app
+  name: nodejs-app-service
   labels:
     app: crud-app
 spec:
@@ -29,7 +29,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
+  name: nodejs-app-deployment
   labels:
     app: crud-app
 spec:
@@ -54,7 +54,7 @@ spec:
         name: crud-app
         env:
         - name: MYSQL_DB_HOST
-          value: nodejs-mysql
+          value: nodejs-mysql-service
         - name: MYSQL_DB_PASSWORD
           valueFrom:
             secretKeyRef:
